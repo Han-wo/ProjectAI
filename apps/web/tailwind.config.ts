@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import pxToRem from "tailwindcss-px-to-rem";
 
 const config: Config = {
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -35,7 +36,7 @@ const config: Config = {
       }
     }
   },
-  plugins: []
+  plugins: [pxToRem]
 };
 
 export default config;

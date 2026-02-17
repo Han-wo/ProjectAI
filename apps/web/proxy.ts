@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { type NextRequestWithAuth, withAuth } from "next-auth/middleware";
 
-export default withAuth(
+const handler = withAuth(
   (request: NextRequestWithAuth) => {
     const isSignedIn = Boolean(request.nextauth.token);
     const isLoginPage = request.nextUrl.pathname.startsWith("/login");
@@ -31,6 +31,8 @@ export default withAuth(
     }
   }
 );
+
+export const proxy = handler;
 
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"]
