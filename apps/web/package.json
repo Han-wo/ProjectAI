@@ -1,0 +1,33 @@
+{
+  "name": "@apps/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "typecheck": "tsc --noEmit",
+    "lint": "ESLINT_USE_FLAT_CONFIG=true pnpm -w exec eslint --config eslint.config.js \"apps/web/**/*.{ts,tsx}\" --max-warnings=0",
+    "lint:fix": "ESLINT_USE_FLAT_CONFIG=true pnpm -w exec eslint --config eslint.config.js \"apps/web/**/*.{ts,tsx}\" --fix",
+    "test": "echo \"No tests yet\"",
+    "clean": "rm -rf .next"
+  },
+  "dependencies": {
+    "@repo/llm-core": "workspace:*",
+    "next": "^16.1.6",
+    "next-auth": "latest",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "autoprefixer": "^10.4.20",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "@repo/llm-core",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/contracts.js",
+  "types": "dist/contracts.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/contracts.ts",
+      "default": "./dist/contracts.js"
+    },
+    "./contracts": {
+      "types": "./src/contracts.ts",
+      "default": "./dist/contracts.js"
+    },
+    "./server": {
+      "types": "./src/server.ts",
+      "default": "./dist/server.js"
+    },
+    "./langgraph": {
+      "types": "./src/langgraph.ts",
+      "default": "./dist/langgraph.js"
+    },
+    "./vector": {
+      "types": "./src/vector.ts",
+      "default": "./dist/vector.js"
+    },
+    "./graph": {
+      "types": "./src/graph.ts",
+      "default": "./dist/graph.js"
+    },
+    "./rdb": {
+      "types": "./src/rdb.ts",
+      "default": "./dist/rdb.js"
+    }
+  },
+  "scripts": {
+    "dev": "tsup src/contracts.ts src/server.ts src/langgraph.ts src/vector.ts src/graph.ts src/rdb.ts --format cjs --dts --watch",
+    "build": "tsup src/contracts.ts src/server.ts src/langgraph.ts src/vector.ts src/graph.ts src/rdb.ts --format cjs --dts --clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "ESLINT_USE_FLAT_CONFIG=true pnpm -w exec eslint --config eslint.config.js \"packages/llm-core/src/**/*.ts\" --max-warnings=0",
+    "lint:fix": "ESLINT_USE_FLAT_CONFIG=true pnpm -w exec eslint --config eslint.config.js \"packages/llm-core/src/**/*.ts\" --fix",
+    "test": "echo \"No tests yet\"",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@langchain/anthropic": "^0.3.14",
+    "@langchain/community": "^0.3.42",
+    "@langchain/core": "^0.3.39",
+    "@langchain/langgraph": "^0.2.66",
+    "@langchain/openai": "^0.4.5",
+    "@langchain/qdrant": "^0.1.0",
+    "@qdrant/js-client-rest": "^1.13.0",
+    "ai": "^4.1.33",
+    "neo4j-driver": "^5.27.0",
+    "openai": "^4.86.1",
+    "pg": "^8.13.3",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3"
+  }
+}

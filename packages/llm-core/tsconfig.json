@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true,
+    "module": "commonjs",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "baseUrl": ".",
+    "paths": {
+      "@repo/llm-core": ["src/contracts.ts"],
+      "@repo/llm-core/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "../../types/**/*.d.ts"]
+}
